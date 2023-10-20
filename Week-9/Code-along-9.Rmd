@@ -1,0 +1,198 @@
+---
+pdf_document: default
+author: 'NM2207: Computational Media Literacy'
+date: "`r Sys.Date()`"
+output:
+  pdf_document: default
+title: "Week-9: Code-along and challenge"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r, eval=TRUE,echo=TRUE}
+library(tidyverse)
+```
+
+# Code-along
+```{r, eval=TRUE,echo=TRUE}
+# Load data set
+tidydata <- tribble(
+~country, ~year, ~cases, ~population,
+"Afghanistan", 1999, 745, 19987071,
+"Afghanistan", 2000, 2666, 20595360,
+"Brazil", 1999, 37737, 172006362,
+"Brazil", 2000, 80488, 174504898,
+"China", 1999, 212258, 1272915272,
+"China", 2000, 213766, 1280428583)
+
+```
+
+```{r, eval=TRUE,echo=TRUE}
+# Org by total # of cases in a year
+tidydata %>% 
+ group_by(year) %>% 
+ summarize(total_cases = sum(cases))
+
+```
+
+
+```{r, eval=TRUE,echo=TRUE}
+# Loading a non-tidy dataset 
+nontidydata <- tribble(
+ ~country,~year,~rate, 
+"Afghanistan", 1999, "745/19987071", 
+"Afghanistan", 2000, "2666/20595360", 
+"Brazil", 1999, "37737/172006362", 
+"Brazil", 2000, "80488/174504898", 
+"China", 1999, "212258/1272915272",
+"China", 2000, "213766/1280428583")
+
+nontidydata
+
+```
+
+```{r, eval=TRUE,echo=TRUE}
+# tidying the dataset
+tidieddata <- nontidydata %>%
+ separate(rate, into = c("cases", 
+ "population"),
+ sep = "/")
+tidieddata
+```
+
+```{r, eval=TRUE,echo=TRUE}
+# Passing names to new columns "measurement" and "values" from col "cases" to "popn" 
+newtidieddata <- tidieddata %>%
+ pivot_longer(
+ cols = cases:population,
+ names_to = "measurement"
+,
+ values_to = "value"
+ )
+newtidieddata
+
+```   
+
+```{r, eval=TRUE,echo=TRUE}
+# one-dimensional ggplot
+ggplot(newtidieddata) +
+ aes(x=year,y=value, colour=country) +
+ geom_point() +
+ geom_line(aes(group = country))+
+ facet_wrap(~measurement) + 
+ theme_bw()
+
+
+```
+
+
+```{r, eval=TRUE,echo=TRUE}
+# Example 2
+df <- tribble(
+ ~id, ~bp1, ~bp2,
+ "A", 100, 120,
+ "B", 140, 115,
+ "C", 120, 125)
+df
+
+
+```
+
+
+
+```{r, eval=TRUE,echo=TRUE}
+# from columns bp1 to bp2, send them to "measurement" and "value"
+df %>%
+ pivot_longer(
+ cols = bp1:bp2,
+ names_to = "measurement",
+ values_to = "value")
+
+```
+
+```{r, eval=TRUE,echo=TRUE}
+# going back to pivot_longer
+newtidieddata %>% 
+ pivot_wider(names_from="measurement",
+ values_from="value")
+
+
+```
+
+
+```{r, eval=TRUE,echo=TRUE}
+# Example 4: reshapping data
+df <- tribble(
+ ~id, ~measurement, ~value,
+ "A", "bp1", 100,
+ "B", "bp1", 140,
+ "B", "bp2", 115, 
+ "A", "bp2", 120,
+ "A", "bp3", 105)
+df
+
+```
+```{r, eval=TRUE,echo=TRUE}
+# reshapping data w pivot_wider
+# NA appears when there is a missing entry
+df %>% 
+ pivot_wider(
+ names_from = measurement,
+ values_from = value)
+
+```
+
+# Challenge
+## Question 1
+```{r, eval=TRUE,echo=TRUE}
+# Load tidyverse package
+library(tidyverse)
+```
+
+```{r, eval=TRUE,echo=TRUE}
+# Pivot longer to arrange the names, values, and clean data
+newtidieweek <- billboard %>%
+  pivot_longer(
+    cols = starts_with("wk"),
+    names_to = "week",
+    values_to = "rank",
+    values_drop_na = TRUE,
+  )
+
+newtidieweek
+
+```
+
+```{r, eval=TRUE,echo=TRUE}
+# mutate data set
+tidie_data <- newtidieweek %>% 
+  mutate(week = parse_number(week))
+
+tidie_data
+
+```
+
+
+```{r, eval=TRUE,echo=TRUE}
+# Plot graph 
+ggplot(tidie_data) +
+ aes(x=week,y=rank) +
+  geom_line()
+
+```
+
+## Question 2
+```{r, eval=TRUE,echo=TRUE}
+# use pivot_wider
+new_measure_cd <- cms_patient_experience %>%
+  pivot_wider(names_from = "measure_cd",
+              values_from = "prf_rate",
+              id_cols = starts_with("org"))
+
+new_measure_cd
+
+
+```
+

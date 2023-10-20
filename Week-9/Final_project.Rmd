@@ -1,0 +1,18 @@
+---
+title: "Final Project"
+author: "Soh Li Ying"
+date: "`r Sys.Date()`"
+output:
+  pdf_document: default
+---
+
+## Finalised Topic 
+Title: Exploring the Psychological impact of Social Media
+To come up with a data story relating social media and its negative impact on its users in various different ways, such as an evoked sense of stress, negative comments, cyber bullying, and social media addiction - all of which leading to detrimental effects on the mental health. 
+
+## Curated datasets
+* "https://www.kaggle.com/datasets/ruchi798/stress-analysis-in-social-media\n"
+* "https://www.kaggle.com/datasets/souvikahmed071/social-media-and-mental-health\n"
+* "https://www.kaggle.com/datasets/subhajeetdas/hate-comment\n"
+* "https://www.kaggle.com/datasets/mohammadalazawi/social-media-addiction\n"
+* "https://www.kaggle.com/datasets/saurabhshahane/cyberbullying-dataset\n"
