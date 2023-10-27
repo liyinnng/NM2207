@@ -1,0 +1,48 @@
+---
+title: "Final Project"
+author: "Soh Li Ying"
+date: "`r Sys.Date()`"
+output:
+  pdf_document: default
+---
+
+# Week 9
+
+## Finalised Topic 
+Title: Exploring the Psychological impact of Social Media
+To come up with a data story relating social media and its negative impact on its users in various different ways, such as an evoked sense of stress, negative comments, cyber bullying, and social media addiction - all of which leading to detrimental effects on the mental health. 
+
+## Curated datasets
+* "https://www.kaggle.com/datasets/ruchi798/stress-analysis-in-social-media\n"
+* "https://www.kaggle.com/datasets/souvikahmed071/social-media-and-mental-health\n"
+* "https://www.kaggle.com/datasets/subhajeetdas/hate-comment\n"
+* "https://www.kaggle.com/datasets/mohammadalazawi/social-media-addiction\n"
+* "https://www.kaggle.com/datasets/saurabhshahane/cyberbullying-dataset\n"
+
+## Webpage link
+"https://liyinnng.github.io/"
+
+# Week 10
+
+## (1) Question to answer 
+What are the relationships between social media usage and its negative impacts?
+
+## (2) Why is this an important qn?
+As social media usage continues to expand globally, there is a growing worry about its impact on the mental and overall health of individuals and communities. A survey conducted by the [Cybersmile Foundation](https://www.marketingtechnews.net/news/2022/jun/22/89-of-people-feel-social-media-negatively-affects-their-mental-health/) reveals that a significant 89% of social media users perceive social media as harmful to their mental well-being. [According Ms Ranjini Veerappan](https://www.channelnewsasia.com/singapore/big-read-teenagers-social-media-addiction-cost-mental-health-3647121), a certified addiction specialist at Holistic Psychotherapy Centre, a child's brain is still maturing and rapidly developing until they are about 25 years old. This leads to the prevalence of negative effects of social media within youths. Research by the [National    Center for Health Research](https://www.center4research.org/social-media-affects-mental-health/) has also conducted a study on adolescents has identified that body image, for girls and boys, is harmed by social media use.
+
+## (3) Row and columns of dataset used: 
+1. What is your age?
+2. Gender
+6. Do you use social media?
+- "Yes"/"No" data --> str type, which makes it difficult to use it in computations. Hence i changed them to 1/0, where 1 represents yes, and 0 represents no. 
+- before processing the rest of the data for comparison, remove those with '0' whenever required (eg: when comparing between people who use social media)
+8. What is the average time you spend on social media every day?
+10. How often do you get distracted by Social media when you are busy doing something?
+12. On a scale of 1 to 5, how easily distracted are you?
+13. On a scale of 1 to 5, how much are you bothered by worries?
+14. Do you find it difficult to concentrate on things?
+15. On a scale of 1-5, how often do you compare yourself to other successful people through the use of social media?
+16. Following the previous question, how do you feel about these comparisons, generally speaking?
+17. How often do you look to seek validation from features of social media?
+18. How often do you feel depressed or down?
+20. On a scale of 1 to 5, how often do you face issues regarding sleep?
