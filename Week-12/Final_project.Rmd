@@ -1,0 +1,57 @@
+---
+title: "Week 12"
+author: "Soh Li Ying"
+date: "`r Sys.Date()`"
+output:
+  pdf_document: default
+---
+
+# Week 9
+
+## Finalised Topic 
+Title: Exploring the Psychological impact of Social Media
+To come up with a data story relating social media and its negative impact on its users in various different ways, such as an evoked sense of stress, negative comments, cyber bullying, and social media addiction - all of which leading to detrimental effects on the mental health. 
+
+## Curated datasets
+* "https://www.kaggle.com/datasets/ruchi798/stress-analysis-in-social-media\n"
+* "https://www.kaggle.com/datasets/souvikahmed071/social-media-and-mental-health\n"
+* "https://www.kaggle.com/datasets/subhajeetdas/hate-comment\n"
+* "https://www.kaggle.com/datasets/mohammadalazawi/social-media-addiction\n"
+* "https://www.kaggle.com/datasets/saurabhshahane/cyberbullying-dataset\n"
+
+## Webpage link
+"https://liyinnng.github.io/"
+
+# Week 10
+
+## (1) Question to answer 
+What are the relationships between social media usage and its negative impacts?
+
+## (2) Why is this an important qn?
+As social media usage continues to expand globally, there is a growing worry about its impact on the mental and overall health of individuals and communities. A survey conducted by the [Cybersmile Foundation](https://www.marketingtechnews.net/news/2022/jun/22/89-of-people-feel-social-media-negatively-affects-their-mental-health/) reveals that a significant 89% of social media users perceive social media as harmful to their mental well-being. [According Ms Ranjini Veerappan](https://www.channelnewsasia.com/singapore/big-read-teenagers-social-media-addiction-cost-mental-health-3647121), a certified addiction specialist at Holistic Psychotherapy Centre, a child's brain is still maturing and rapidly developing until they are about 25 years old. This leads to the prevalence of negative effects of social media within youths. Research by the [National    Center for Health Research](https://www.center4research.org/social-media-affects-mental-health/) has also conducted a study on adolescents has identified that body image, for girls and boys, is harmed by social media use.
+
+## (3) Row and columns of dataset used: 
+1. What is your age?
+2. Gender
+6. Do you use social media?
+- "Yes"/"No" data --> str type, which makes it difficult to use it in computations. Hence i changed them to 1/0, where 1 represents yes, and 0 represents no. 
+- before processing the rest of the data for comparison, remove those with '0' whenever required (eg: when comparing between people who use social media)
+8. What is the average time you spend on social media every day?
+10. How often do you get distracted by Social media when you are busy doing something?
+12. On a scale of 1 to 5, how easily distracted are you?
+13. On a scale of 1 to 5, how much are you bothered by worries?
+14. Do you find it difficult to concentrate on things?
+15. On a scale of 1-5, how often do you compare yourself to other successful people through the use of social media?
+16. Following the previous question, how do you feel about these comparisons, generally speaking?
+17. How often do you look to seek validation from features of social media?
+18. How often do you feel depressed or down?
+20. On a scale of 1 to 5, how often do you face issues regarding sleep?
+
+# Week 12
+## Challenges and errors faced: 
+
+The first challenge I faced was in my shiny app that was used to create an interactive violin graph. The y-axis of my graphs when I first launched my shiny app were messed up since they followed the coloumn names of data sets (Eg: "X20..On.a.scale.of.1.to.5..how.often.do.you.face.issues.regarding.sleep."). I managed to customize and change the names of the y-axis after I found that you could change the names of the y-axis when you include a title <- "(y-axis name)" instead on changing the y-label since the y-label is used to identify the column used for the y-axis.  
+
+The second challenge I faced was also in my other shiny app. First, I struggled with separating the genders under the same column of "gender" as I wanted to separate them for further analysis of my data set. After scouraging the web for examples of other shiny apps that have done the same (it was difficult since most of the datasets already had the columns they wanted to compare in different columns already), I finally managed to find one and referenced the code. So how I did it was through utilising multiple if-return and else-return functions. I also wanted to include 2 bar graphs both in the main panel, and solved the issue through specifying 2 different plotOutput in the mainpanel() under the UI section, and then later bind the codes of the bar graphs to each of them respectively. 
+
+The third difficulty I faced was deciding on the type of visualisation to use for the data analysis for the relationship between 2 of my columns, "How often do you seek validation from social media?" and "How often do you feel depressed or down?" becuase both of the data in the columns are numbers from 1-5, indicated by surveyors of their perception towards the questions. The first visualisations that would come to mind would be bar graphs, line graphs, etc... However, those will not work in showing a direct relationship between both columns. And I went to search on the website on data visualisation ways to illustrate relationships between 2 variables and found out that a heat map would be ideal in doing so. So I went online to find out more about how I can include a heat map in my quarto docs, and managed to successfully incorporate it in my data analysis. 
