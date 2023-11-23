@@ -1,0 +1,97 @@
+---
+title: "Week 13"
+author: "Soh Li Ying"
+date: "`r Sys.Date()`"
+output:
+  pdf_document: default
+---
+
+# Week 9
+
+## Finalised Topic 
+Title: Exploring the Psychological impact of Social Media
+To come up with a data story relating social media and its negative impact on its users in various different ways, such as an evoked sense of stress, negative comments, cyber bullying, and social media addiction - all of which leading to detrimental effects on the mental health. 
+
+## Curated datasets
+* "https://www.kaggle.com/datasets/ruchi798/stress-analysis-in-social-media\n"
+* "https://www.kaggle.com/datasets/souvikahmed071/social-media-and-mental-health\n"
+* "https://www.kaggle.com/datasets/subhajeetdas/hate-comment\n"
+* "https://www.kaggle.com/datasets/mohammadalazawi/social-media-addiction\n"
+* "https://www.kaggle.com/datasets/saurabhshahane/cyberbullying-dataset\n"
+
+## Webpage link
+"https://liyinnng.github.io/"
+
+# Week 10
+
+## (1) Question to answer 
+What are the relationships between social media usage and its negative impacts?
+
+## (2) Why is this an important qn?
+As social media usage continues to expand globally, there is a growing worry about its impact on the mental and overall health of individuals and communities. A survey conducted by the [Cybersmile Foundation](https://www.marketingtechnews.net/news/2022/jun/22/89-of-people-feel-social-media-negatively-affects-their-mental-health/) reveals that a significant 89% of social media users perceive social media as harmful to their mental well-being. [According Ms Ranjini Veerappan](https://www.channelnewsasia.com/singapore/big-read-teenagers-social-media-addiction-cost-mental-health-3647121), a certified addiction specialist at Holistic Psychotherapy Centre, a child's brain is still maturing and rapidly developing until they are about 25 years old. This leads to the prevalence of negative effects of social media within youths. Research by the [National    Center for Health Research](https://www.center4research.org/social-media-affects-mental-health/) has also conducted a study on adolescents has identified that body image, for girls and boys, is harmed by social media use.
+
+## (3) Row and columns of dataset used: 
+1. What is your age?
+2. Gender
+6. Do you use social media?
+- "Yes"/"No" data --> str type, which makes it difficult to use it in computations. Hence i changed them to 1/0, where 1 represents yes, and 0 represents no. 
+- before processing the rest of the data for comparison, remove those with '0' whenever required (eg: when comparing between people who use social media)
+8. What is the average time you spend on social media every day?
+10. How often do you get distracted by Social media when you are busy doing something?
+12. On a scale of 1 to 5, how easily distracted are you?
+13. On a scale of 1 to 5, how much are you bothered by worries?
+14. Do you find it difficult to concentrate on things?
+15. On a scale of 1-5, how often do you compare yourself to other successful people through the use of social media?
+16. Following the previous question, how do you feel about these comparisons, generally speaking?
+17. How often do you look to seek validation from features of social media?
+18. How often do you feel depressed or down?
+20. On a scale of 1 to 5, how often do you face issues regarding sleep?
+
+# Week 12
+## Challenges and errors faced: 
+
+The first challenge I faced was in my shiny app that was used to create an interactive violin graph. The y-axis of my graphs when I first launched my shiny app were messed up since they followed the coloumn names of data sets (Eg: "X20..On.a.scale.of.1.to.5..how.often.do.you.face.issues.regarding.sleep."). I managed to customize and change the names of the y-axis after I found that you could change the names of the y-axis when you include a title <- "(y-axis name)" instead on changing the y-label since the y-label is used to identify the column used for the y-axis.  
+
+The second challenge I faced was also in my other shiny app. First, I struggled with separating the genders under the same column of "gender" as I wanted to separate them for further analysis of my data set. After scouraging the web for examples of other shiny apps that have done the same (it was difficult since most of the datasets already had the columns they wanted to compare in different columns already), I finally managed to find one and referenced the code. So how I did it was through utilising multiple if-return and else-return functions. I also wanted to include 2 bar graphs both in the main panel, and solved the issue through specifying 2 different plotOutput in the mainpanel() under the UI section, and then later bind the codes of the bar graphs to each of them respectively. 
+
+The third difficulty I faced was deciding on the type of visualisation to use for the data analysis for the relationship between 2 of my columns, "How often do you seek validation from social media?" and "How often do you feel depressed or down?" becuase both of the data in the columns are numbers from 1-5, indicated by surveyors of their perception towards the questions. The first visualisations that would come to mind would be bar graphs, line graphs, etc... However, those will not work in showing a direct relationship between both columns. And I went to search on the website on data visualisation ways to illustrate relationships between 2 variables and found out that a heat map would be ideal in doing so. So I went online to find out more about how I can include a heat map in my quarto docs, and managed to successfully incorporate it in my data analysis. 
+
+# Final Submission
+
+Title: Unveiling the Dark Side of Social Media: A Comprehensive Data Exploration
+
+(1) **Theme of the Data Story:**
+In an era dominated by the ubiquitous presence of social media, the theme of this data story centers around the investigation of its negative and detrimental impacts on individuals and communities. The focus extends beyond casual speculation, delving into empirical evidence to unravel the intricate web of consequences associated with the escalating use of social platforms.
+
+(2) **Importance of Addressing the Question:**
+The pervasive nature of social media usage demands a critical examination of its consequences. The sheer scale of its influence, especially on the mental health of individuals, has raised considerable concerns. A survey by the Cybersmile Foundation underscores the gravity of the situation, revealing that a staggering 89% of social media users perceive it as harmful to their mental well-being. The importance of addressing this question lies in the need to comprehend the multifaceted impact of social media on mental health and overall well-being, particularly among the youth. Ranjini Veerappan, a certified addiction specialist, highlights the vulnerability of a developing brain, making it imperative to scrutinize the negative effects of social media on the younger demographic.
+
+(3) **Relevance of Curated Data Sources:**
+The chosen data sources play a pivotal role in substantiating the narrative on the negative impacts of social media. The first dataset, derived from user perceptions, serves as a valuable repository of insights into the subjective experiences of individuals. It encapsulates their concerns, fears, and reservations regarding the impact of social media on their mental health. This qualitative data complements the quantitative aspects, offering a holistic view of the user experience.
+
+The second dataset, a word cloud illustrating prevalent themes in hateful comments, provides a stark illustration of the darker side of online interactions. It serves as a poignant reminder of the toxicity that can permeate the digital sphere, emphasizing the need for responsible and empathetic engagement on social platforms.
+
+(4) **Insights from the Data and Depiction in Plots:**
+The exploration into the negative impacts of social media unfolds through a series of insightful visualizations and analyses.
+
+- **Interactive Heatmaps:** The first set of interactive heatmaps unveils negative relationships between social media usage and critical facets of well-being, including sleep quality, concentration, and general worries. The progressive darkening of the heatmap along the y-axis serves as a visual testament to the escalating impact of social media on these variables.
+
+- **Validation-Seeking and Depression:** A subsequent heatmap probes the relationship between seeking validation on social media and the frequency of feeling depressed. The analysis reveals a compelling correlation, indicating that those who seek validation frequently are more prone to experiencing depressive feelings. This insight underscores the psychological toll that the quest for online validation can exact on individuals.
+
+- **Age-Based Analysis:** A nuanced exploration of age groups using a shiny app adds depth to the narrative. By categorizing respondents into different age brackets, the analysis emphasizes the vulnerability of younger users. The revelation that the majority of respondents engaging in frequent comparisons to successful people fall within the "Child" age group further reinforces concerns about the susceptibility of youth to negative impacts.
+
+- **Word Cloud Analysis:** The incorporation of a word cloud to analyze hateful comments provides a qualitative dimension to the exploration. It highlights prevalent themes related to gender, race, and religion, offering a sobering reminder of the need for fostering a healthier online discourse.
+
+(5) **Implementation of the Project:**
+The implementation of this project reflects a comprehensive approach to data storytelling.
+
+- **Interactive Charts with echart4r:** The utilization of the echart4r package allowed for the creation of dynamic and interactive charts, enhancing the storytelling aspect of data representation. This choice not only facilitated engagement but also conveyed the nuances of the data effectively.
+
+- **Quarto for Webpage Development:** The integration of quarto functions in webpage development provided a platform for seamless incorporation of interactive panels. This not only enhanced the user experience but also allowed for a more structured and layered presentation of the data.
+
+- **Experimentation with reveal.js:** The exploration of reveal.js for incorporating PowerPoint slides into the webpage added a dynamic element to the presentation. While the current implementation might be perceived as plain, the intent is to delve deeper into reveal.js features for a more enriched presentation in subsequent iterations.
+
+- **SCSS for Customization:** The use of SCSS for customizing the webpage's aesthetics afforded a level of flexibility not achievable with built-in themes. This customization extended to specific aspects of the website, such as font size and color schemes, contributing to a visually appealing and cohesive presentation.
+
+**Conclusion:**
+In conclusion, the data story offers a nuanced exploration of the negative impacts of social media, grounded in both quantitative and qualitative data. By weaving together insights from user perceptions, interactive visualizations, and analyses of online interactions, the narrative sheds light on the multifaceted consequences of social media usage. As social media continues to be an integral part of contemporary life, understanding and addressing these issues are imperative for fostering a digital environment that promotes positive engagement and safeguards the well-being of its users.
