@@ -1,0 +1,6 @@
+project:
+  title: "NM2207"
+  type: website
+  output-dir: docs
+resources:
+  - quarto-ext/fontawesome
