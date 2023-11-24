@@ -4,6 +4,10 @@ author: "Soh Li Ying"
 date: "`r Sys.Date()`"
 output:
   pdf_document: default
+  latex_engine: pdflatex
+  keep_tex: true
+  word_wrap: true
+  extra_dependencies: ["geometry"]
 ---
 
 # Week 9
@@ -21,6 +25,7 @@ To come up with a data story relating social media and its negative impact on it
 
 ## Webpage link
 "https://liyinnng.github.io/"
+https://liyinnng.github.io/school_projects/NM2207-datastory/data-story.html (for the datastory specifically)
 
 # Week 10
 
@@ -61,37 +66,64 @@ The third difficulty I faced was deciding on the type of visualisation to use fo
 Title: Unveiling the Dark Side of Social Media: A Comprehensive Data Exploration
 
 (1) **Theme of the Data Story:**
-In an era dominated by the ubiquitous presence of social media, the theme of this data story centers around the investigation of its negative and detrimental impacts on individuals and communities. The focus extends beyond casual speculation, delving into empirical evidence to unravel the intricate web of consequences associated with the escalating use of social platforms.
+In an era dominated by the ubiquitous presence of social media, the theme of this data story centres around the investigation of its negative and detrimental impacts on individuals and communities. The focus extends beyond casual speculation, delving into empirical evidence to unravel the intricate web of consequences associated with the escalating use of social platforms.
 
 (2) **Importance of Addressing the Question:**
-The pervasive nature of social media usage demands a critical examination of its consequences. The sheer scale of its influence, especially on the mental health of individuals, has raised considerable concerns. A survey by the Cybersmile Foundation underscores the gravity of the situation, revealing that a staggering 89% of social media users perceive it as harmful to their mental well-being. The importance of addressing this question lies in the need to comprehend the multifaceted impact of social media on mental health and overall well-being, particularly among the youth. Ranjini Veerappan, a certified addiction specialist, highlights the vulnerability of a developing brain, making it imperative to scrutinize the negative effects of social media on the younger demographic.
+The pervasive nature of social media usage demands an examination of its consequences. The sheer scale of its influence, especially on the mental health of individuals, has raised considerable concerns. A survey by the Cybersmile Foundation underscores the gravity of the situation, revealing that a staggering 89% of social media users perceive it as harmful to their mental well-being. The importance of addressing this question lies in the need to comprehend the multifaceted impact of social media on mental health and overall well-being, particularly among the youth. Ranjini Veerappan, a certified addiction specialist, highlights the vulnerability of a developing brain, making it imperative to scrutinize the negative effects of social media on the younger demographic.
 
 (3) **Relevance of Curated Data Sources:**
-The chosen data sources play a pivotal role in substantiating the narrative on the negative impacts of social media. The first dataset, derived from user perceptions, serves as a valuable repository of insights into the subjective experiences of individuals. It encapsulates their concerns, fears, and reservations regarding the impact of social media on their mental health. This qualitative data complements the quantitative aspects, offering a holistic view of the user experience.
+The chosen data sources play a pivotal role in substantiating the narrative on the negative impacts of social media. The first dataset, derived from survey responses, serves as a valuable repository of insights into the subjective experiences of individuals. It encapsulates their concerns and perceptions regarding the impact of social media on their mental health. This qualitative data complements the quantitative aspects, offering a holistic view of the user experience.
 
-The second dataset, a word cloud illustrating prevalent themes in hateful comments, provides a stark illustration of the darker side of online interactions. It serves as a poignant reminder of the toxicity that can permeate the digital sphere, emphasizing the need for responsible and empathetic engagement on social platforms.
+The second dataset, a word cloud illustrating prevalent themes in hateful comments, provides a stark illustration of the darker side of online interactions. It sheds light on the words that are most commonly used in hateful comments, emphasizing the need for responsible and empathetic engagement on social platforms.
 
 (4) **Insights from the Data and Depiction in Plots:**
-The exploration into the negative impacts of social media unfolds through a series of insightful visualizations and analyses.
+The exploration of the negative impacts of social media unfolds through a series of insightful visualizations and analyses.
 
-- **Interactive Heatmaps:** The first set of interactive heatmaps unveils negative relationships between social media usage and critical facets of well-being, including sleep quality, concentration, and general worries. The progressive darkening of the heatmap along the y-axis serves as a visual testament to the escalating impact of social media on these variables.
+- **Donut, Bar and Pie charts:** We start off with understanding the basic demographics of our dataset, such as the age group distribution, proportion of social media users, and the average time spent on social media. 
 
-- **Validation-Seeking and Depression:** A subsequent heatmap probes the relationship between seeking validation on social media and the frequency of feeling depressed. The analysis reveals a compelling correlation, indicating that those who seek validation frequently are more prone to experiencing depressive feelings. This insight underscores the psychological toll that the quest for online validation can exact on individuals.
+- **Shiny Heatmaps:** The heatmaps hosted on shiny unveils negative relationships between social media usage and critical facets of well-being (sleep-quality, concentration, and general worries). The progressive darkening of the heatmap along the y-axis illustrate the escalating impact of social media on these variables.
 
-- **Age-Based Analysis:** A nuanced exploration of age groups using a shiny app adds depth to the narrative. By categorizing respondents into different age brackets, the analysis emphasizes the vulnerability of younger users. The revelation that the majority of respondents engaging in frequent comparisons to successful people fall within the "Child" age group further reinforces concerns about the susceptibility of youth to negative impacts.
+- **Validation-Seeking and Depression:** A subsequent heatmap probes the relationship between seeking validation on social media and the frequency of feeling depressed. The analysis reveals that those who seek validation frequently are more prone to experiencing depressive feelings. This insight underscores the psychological toll that the quest for online validation can take on individuals.
 
-- **Word Cloud Analysis:** The incorporation of a word cloud to analyze hateful comments provides a qualitative dimension to the exploration. It highlights prevalent themes related to gender, race, and religion, offering a sobering reminder of the need for fostering a healthier online discourse.
+- **Age-Based Analysis:** Moving on to our next shiny app, we investigate Frequency in comparing oneself to other successful people through the use of social media, and how one feels about these comparisons generally speaking with a line and area chart. I wanted to focus on how the user's age affects the impact of social media usage on one. By categorizing respondents into different age brackets, the analysis emphasizes the vulnerability of younger users to negative impacts caused by comparisons on social media.
+
+- **Word Cloud Analysis:** The interactive word cloud illustrating the most commonly used words in hateful comments provides a qualitative dimension to the exploration. It highlights prevalent themes related to gender, race, and religion, offering a reminder of the need to foster a healthier online discourse.
+
+While these are very brief insights and observations from our data set, I have conducted deeper analysis and observations on my website, alongside concrete research that supports the insights. 
 
 (5) **Implementation of the Project:**
 The implementation of this project reflects a comprehensive approach to data storytelling.
 
-- **Interactive Charts with echart4r:** The utilization of the echart4r package allowed for the creation of dynamic and interactive charts, enhancing the storytelling aspect of data representation. This choice not only facilitated engagement but also conveyed the nuances of the data effectively.
+- **Interactive Charts with echart4r:** While searching for visual charts that could better illustrate my data story, I chanced upon the echart4r package, which allows for creation of dynamic and interactive charts to enhance the storytelling aspect of data representation. Although the argument names to call for functions are widely different from ggplot2, the data processing and thought process behind passing relevant variable through the arguments are similar to what we have learned during class. 
 
-- **Quarto for Webpage Development:** The integration of quarto functions in webpage development provided a platform for seamless incorporation of interactive panels. This not only enhanced the user experience but also allowed for a more structured and layered presentation of the data.
+- **Quarto for Webpage Development:** Upon reading through the various functions Quarto provides for webpage development, I experimented and managed to incorporate some interactive aspects, such as PowerPoint slides (with reveal.js) and panels. This allowed for a more structured and layered presentation of the data.
 
-- **Experimentation with reveal.js:** The exploration of reveal.js for incorporating PowerPoint slides into the webpage added a dynamic element to the presentation. While the current implementation might be perceived as plain, the intent is to delve deeper into reveal.js features for a more enriched presentation in subsequent iterations.
-
-- **SCSS for Customization:** The use of SCSS for customizing the webpage's aesthetics afforded a level of flexibility not achievable with built-in themes. This customization extended to specific aspects of the website, such as font size and color schemes, contributing to a visually appealing and cohesive presentation.
+- **SCSS for Customization:** I also went on to explore the difference between using CSS and SCSS, which allows flexible customization that is not achievable with built-in themes. I proceeded with SCSS as it allows greater flexibility than CSS. This customization extended to specific aspects of the website, such as font size and colour schemes, contributing to a visually appealing and cohesive presentation.
 
 **Conclusion:**
-In conclusion, the data story offers a nuanced exploration of the negative impacts of social media, grounded in both quantitative and qualitative data. By weaving together insights from user perceptions, interactive visualizations, and analyses of online interactions, the narrative sheds light on the multifaceted consequences of social media usage. As social media continues to be an integral part of contemporary life, understanding and addressing these issues are imperative for fostering a digital environment that promotes positive engagement and safeguards the well-being of its users.
+In conclusion, it has really been an exciting journey while creating this data story, that offers a nuanced exploration of the negative impacts of social media. By weaving together insights from user perceptions, interactive visualizations, and analyses of online interactions, the narrative sheds light on the multifaceted consequences of social media usage to allow us to better foster a digital environment that promotes positive engagement and safeguards the well-being of its users.
+
+**References & Citations:**
+
+- Ahmed, S., &amp; Syeda, M. N. (2023, July). Social Media and Mental Health. https://www.kaggle.com/datasets/souvikahmed071/social-media-and-mental-health/data. 
+
+- Baptist Health. (2020, November 6). How social media affects attention span. https://www.baptisthealth.com/blog/family-health/how-social-media-affects-attention-span#:~:text=Not%20only%20are%20attention%20spans,decreased%20attention%20on%20each%20task. 
+
+- Cramer, S., &amp; Inkster, B. (2017, May). #StatusOfMind Social media and young people’s mental health and wellbeing. https://www.rsph.org.uk/our-work/campaigns/status-of-mind.html
+
+- Das, S. (2022, November 1). Social media hate comments. Kaggle. https://www.kaggle.com/datasets/subhajeetdas/hate-comment 
+
+- Dean, B. (2023, November 15). How many people use Social Media in 2023? (65+ statistics). Backlinko. https://backlinko.com/social-media-users#social-media-usage-stats 
+
+- Lau, D. (2023, July 24). The big read: Teenagers hooked on social media - what’s the cost to their mental health? CNA. https://www.channelnewsasia.com/singapore/big-read-teenagers-social-media-addiction-cost-mental-health-3647121 
+
+- MacRae, D. (2022, June 22). 89% of people feel social media negatively affects their mental health. Marketing Tech News. https://www.marketingtechnews.net/news/2022/jun/22/89-of-people-feel-social-media-negatively-affects-their-mental-health/ 
+
+- Mir, E., &amp; Sun, A. (2023, July 20). Social Media and adolescents’ and Young Adults’ mental health. National Center for Health Research. https://www.center4research.org/social-media-affects-mental-health/ 
+
+- Newport Academy. (2023, August 3). The theory of social comparison and Mental Health. https://www.newportacademy.com/resources/empowering-teens/theory-of-social-comparison/ 
+
+- Nuno, S. (2023, February 14). How does social media affect sleep? (2023). Mattress Clarity. https://www.mattressclarity.com/sleep-resources/social-media-affects-sleep/#:~:text=Social%20Media%20and%20Insomnia,understanding%20of%20when%20bedtime%20is. 
+
+- Robinson, L., &amp;  Smith, M. (2023, March 29). Social Media and Mental Health. HelpGuide.org. https://www.helpguide.org/articles/mental-health/social-media-and-mental-health.htm#:~:text=using%20social%20media.-,Modifying%20social%20media%20use%20to%20improve%20mental%20health%20step%201,%2C%20sleep%20problems%2C%20and%20FOMO. 
+
